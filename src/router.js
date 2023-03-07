@@ -18,7 +18,9 @@ router.post("/metabin/create-new-barcode/", async (req, res, next) => {
     await newBarcode.save();
     return res.status(200).json({ message: "barcode add successfully" });
   } catch (error) {
-    return res.status(404).json({ message: "cannot add barcode" });
+    return res
+      .status(404)
+      .json({ message: "cannot add barcode", error: error });
   }
 });
 
