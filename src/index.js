@@ -3,7 +3,7 @@ const { json } = require("body-parser");
 const app = express();
 const dotenv = require("dotenv").config();
 const cors = require("cors");
-const router = require("./src/router");
+const router = require("./router");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
@@ -25,10 +25,6 @@ try {
 }
 
 app.use("/api/", router);
-app.get('/', (req, res) => {
-    console.log("Just got a request!")
-    res.send('Just got a request')
-})
 
 app.listen(8002, () => {
   console.log("app listen to port 8002");
